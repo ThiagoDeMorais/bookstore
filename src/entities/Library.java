@@ -17,15 +17,16 @@ public class Library {
 		return user;
 	}
 	
-	public void removeUserById(Integer id) {
+	public Integer removeUserById(Integer id) {
 		for(User user: users) {
 			if(user.getId() == id) {
 				if(user.getBooks().size() == 0) {
 					users.remove(user);	
-				}
-				
+					return user.getId();
+				}	
 			}
 		}
+		return null;
 	}
 	
 	public String listUsers() {

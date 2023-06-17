@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import controllers.LibraryController;
@@ -12,16 +14,31 @@ public class Application {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		
-		
-		//++
+
+		// ++
 		Library library = new Library();
 		User user = new User();
 		Book book = new Book();
 		LibraryController libraryController = new LibraryController();
-		//--
+		List<User> userList = new ArrayList<>();
+		List<Book> bookList = new ArrayList<>();
+
+		// --
+
+		// CARREGANDO INFORMAÇÕES DO BANCO++
+		userList = libraryController.getListUser();
+		for (User user1 : userList) {
+			library.addUserToLibrary(user1);
+		}
 		
-		// teste inserção usuário++
+		bookList = libraryController.getListBook();
+		for (Book book1 : bookList) {
+			library.addBookToLibrary(book1);
+		}
+
+		// CARREGANDO INFORMAÇÕES DO BANCO--
+
+		// TESTE INSERÇÃO USUÁRIO++
 //		user = new User();
 //		String userName;
 //		
@@ -34,10 +51,10 @@ public class Application {
 //		}else {
 //			System.out.println("Erro ao cadastrar usuário");
 //		}
-		// teste inserção usuário--
+		// TESTE INSERÇÃO USUÁRIO--
 
-		// teste inserção livro++
-		
+		// TESTE INSERÇÃO LIVRO++
+
 		String bookTitle;
 		String bookAuthor;
 		Integer year;
@@ -51,14 +68,32 @@ public class Application {
 		year = Integer.parseInt(sc.nextLine());
 		System.out.println("Digite a opção: disponivel/locado");
 		status = sc.nextLine();
-		book = new Book(null, bookTitle, bookAuthor, year, status);
+		book = new Book(bookTitle, bookAuthor, year, status);
 		
 		if(libraryController.saveBook(library.addBookToLibrary(book))){
 			System.out.println("Livro cadastrao");
 		}else {
 			System.out.println("Erro ao cadastrar livro");
 		}
-		// teste inserção livro--
+		// TESTE INSERÇÃO LIVRO--
+
+		// TESTE LISTAR USUÁRIOS++
+//		System.out.println(library.listUsers());
+		// TESTE LISTAR USUÁRIOS--
+		
+		// TESTE LISTAR LIVROS++
+		System.out.println(library.listBooks());
+		// TESTE LISTAR LIVROS--
+
+		// TESTE REMOVER USUÁRIOS++
+//		Integer matricula;
+//		System.out.println("Digite a matrícula do usuário que deve ser removido:");
+//		matricula = Integer.parseInt(sc.nextLine());
+//
+//		libraryController.removeUser(library.removeUserById(matricula));
+		// TESTE REMOVER USUÁRIOS--
+		
+		
 
 	}
 

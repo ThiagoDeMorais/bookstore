@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+
 import DAO.LibraryDAO;
 import entities.Book;
 import entities.User;
@@ -14,6 +16,18 @@ public class LibraryController {
 	
 	public boolean saveBook(Book book) {
 		return this.libraryDAO.saveBook(book);	
+	}
+
+	public List<User> getListUser() {
+		return this.libraryDAO.getListUser();
+	}
+
+	public boolean removeUser(Integer matricula) {
+		return this.libraryDAO.removeUser(matricula);
+	}
+
+	public List<Book> getListBook() {
+		return this.libraryDAO.getListBook();
 	}
 	
 }

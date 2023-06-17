@@ -9,14 +9,13 @@ public class Book {
 	private String author;
 	private Integer publicationYear;
 	private String status;
+	private User user;
 	
 	public Book() {
 		
 	}
 
-	public Book(Integer id, String title, String author, Integer publicationYear, String status) {
-		super();
-		this.id = id;
+	public Book(String title, String author, Integer publicationYear, String status) {
 		this.title = title;
 		this.author = author;
 		this.publicationYear = publicationYear;
@@ -61,6 +60,14 @@ public class Book {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUserId(User user) {
+		this.user = user;
 	}
 
 	@Override
