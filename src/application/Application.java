@@ -82,16 +82,24 @@ public class Application {
 		// TESTE LISTAR USUÁRIOS--
 		
 		// TESTE LISTAR LIVROS++
-		System.out.println(library.listBooks());
+//		System.out.println(library.listBooks());
 		// TESTE LISTAR LIVROS--
 
 		// TESTE REMOVER USUÁRIOS++
-//		Integer matricula;
-//		System.out.println("Digite a matrícula do usuário que deve ser removido:");
-//		matricula = Integer.parseInt(sc.nextLine());
-//
-//		libraryController.removeUser(library.removeUserById(matricula));
+		Integer matricula;
+		System.out.println("Digite a matrícula do usuário que deve ser removido:");
+		matricula = Integer.parseInt(sc.nextLine());
+
+		libraryController.removeUser(library.removeUserById(matricula));
 		// TESTE REMOVER USUÁRIOS--
+		
+		// TESTE REMOVER LIVROS++
+		Integer codigo;
+		System.out.println("Digiteo código do livro que deve ser removido:");
+		codigo = Integer.parseInt(sc.nextLine());
+
+		libraryController.removeBook(library.removeBookById(codigo));
+		// TESTE REMOVER LIVROS--
 		
 		
 

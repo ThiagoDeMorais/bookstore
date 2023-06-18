@@ -51,12 +51,14 @@ public class Library {
 		return book;
 	}
 	
-	public void removeBookById(Integer id) {
+	public Integer removeBookById(Integer id) {
 		for(Book book: books) {
 			if(book.getId() == id) {
 				books.remove(book);
+				return book.getId();
 			}
 		}
+		return null;
 	}
 	
 	public String infoBook(Integer id) {

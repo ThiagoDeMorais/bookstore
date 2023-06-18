@@ -134,4 +134,27 @@ public class LibraryDAO extends SQLiteConnection {
 		return true;
 	}
 
+	public boolean removeBook(Integer bookId) {
+		toConnect();
+		PreparedStatement preparedStatement;
+		String sql = "DELETE FROM tb_book WHERE pk_book_id = '" + bookId + "'";
+		preparedStatement = this.createPreparedStatement(sql);
+		try {
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			Logger.getLogger(LibraryDAO.class.getName()).log(Level.SEVERE, null, e);
+			return false;
+		} finally {
+			try {
+				preparedStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				Logger.getLogger(LibraryDAO.class.getName()).log(Level.SEVERE, null, e);
+			}
+		}
+		disconnect();
+		return true;
+	}
+
 }

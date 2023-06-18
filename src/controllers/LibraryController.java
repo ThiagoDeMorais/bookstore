@@ -29,5 +29,10 @@ public class LibraryController {
 	public List<Book> getListBook() {
 		return this.libraryDAO.getListBook();
 	}
+
+	public boolean removeBook(Integer codigo) {
+		return this.libraryDAO.removeBook(codigo);
+		
+	}
 	
 }
